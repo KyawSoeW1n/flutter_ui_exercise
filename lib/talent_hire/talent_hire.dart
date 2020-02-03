@@ -125,11 +125,24 @@ class TalentHire extends StatelessWidget {
                     width: 60,
                     height: 60,
                     decoration: BoxDecoration(
+                      color: Colors.green,
                       borderRadius: BorderRadius.circular(30.0),
                       image: DecorationImage(
                           image: NetworkImage(
                               "https://homepages.cae.wisc.edu/~ece533/images/airplane.png")),
-                    ))
+                    )),
+                Container(
+                  width: 15,
+                  height: 15,
+                  margin: EdgeInsets.only(left: 40),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.0),
+                      color: status == 'Away' ? Colors.amber : Colors.green,
+                      border: Border.all(
+                          color: Colors.white,
+                          style: BorderStyle.solid,
+                          width: 2.0)),
+                )
               ],
             ),
             Padding(
