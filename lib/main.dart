@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_exercise/talent_hire/talent_hire.dart';
+import 'package:flutter_ui_exercise/travel_app/TravelHomePage.dart';
+
+import 'travelgram/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: TalentHire(),
+      home: TravelHomePage(),
     );
   }
 }

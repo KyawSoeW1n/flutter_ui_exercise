@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_exercise/common/common_sized_box.dart';
 import 'package:flutter_ui_exercise/travelgram/build_image_grid.dart';
 
-class TravelHomePage extends StatefulWidget {
+class TravelogramHomePage extends StatefulWidget {
   @override
-  _TravelHomePageState createState() => _TravelHomePageState();
+  _TravelogramHomePageState createState() => _TravelogramHomePageState();
 }
 
-class _TravelHomePageState extends State<TravelHomePage>
+class _TravelogramHomePageState extends State<TravelogramHomePage>
     with SingleTickerProviderStateMixin {
   TabController tabController;
 
