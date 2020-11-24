@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_exercise/travel_app/TravelHomePage.dart';
 
 import 'travelgram/home.dart';
 
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: TravelHomePage(),
+      home: TravelogramHomePage(),
     );
   }
 }

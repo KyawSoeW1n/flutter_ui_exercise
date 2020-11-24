@@ -13,7 +13,7 @@ class TalentHire extends StatelessWidget {
         ),
         centerTitle: true,
         title: FlutterLogo(
-          colors: Colors.green,
+          textColor: Colors.green,
         ),
         actions: <Widget>[
           Padding(

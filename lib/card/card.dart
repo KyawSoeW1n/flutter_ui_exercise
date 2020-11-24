@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage>
               actions: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(right: 8.0),
-                  child: FlutterLogo(colors: Colors.blue, size: 40.0),
+                  child: FlutterLogo(textColor: Colors.blue, size: 40.0),
                 )
               ],
             ),
@@ -141,8 +141,7 @@ class _MyHomePageState extends State<MyHomePage>
                                     children: <Widget>[
                                       Text(
                                         'Kayla',
-                                        style: TextStyle(
-                                            fontSize: 20.0),
+                                        style: TextStyle(fontSize: 20.0),
                                       ),
                                       SizedBox(width: 4.0),
                                       Image.asset(
@@ -154,8 +153,7 @@ class _MyHomePageState extends State<MyHomePage>
                                       Text(
                                         '5.8km',
                                         style: TextStyle(
-                                            fontSize: 20.0,
-                                            color: Colors.grey),
+                                            fontSize: 20.0, color: Colors.grey),
                                       ),
                                     ],
                                   ),
@@ -165,8 +163,7 @@ class _MyHomePageState extends State<MyHomePage>
                                       Text(
                                         'Fate is wonderful.',
                                         style: TextStyle(
-                                            fontSize: 15.0,
-                                            color: Colors.grey),
+                                            fontSize: 15.0, color: Colors.grey),
                                       )
                                     ],
                                   )

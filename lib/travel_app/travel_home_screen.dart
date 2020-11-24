@@ -1,7 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_exercise/travel_app/RecomendedModel.dart';
+import 'package:flutter_ui_exercise/travel_app/bottom_navigation.dart';
+import 'package:flutter_ui_exercise/travel_app/model/recomended_model.dart';
+import 'package:flutter_ui_exercise/travel_app/selected_page_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -12,13 +14,6 @@ class TravelHomePage extends StatefulWidget {
 
 class _TravelHomePageState extends State<TravelHomePage> {
   var _pageController = PageController(viewportFraction: 0.877);
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,36 +21,7 @@ class _TravelHomePageState extends State<TravelHomePage> {
         TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.hearing),
-            title: Text('Business'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            title: Text('School'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            title: Text('Notifications'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Text('Person'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        showUnselectedLabels: false,
-        showSelectedLabels: true,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
-      ),
+      bottomNavigationBar: BottomNavigation(),
       body: SafeArea(
         child: Container(
           child: ListView(
@@ -141,38 +107,45 @@ class _TravelHomePageState extends State<TravelHomePage> {
                   controller: _pageController,
                   scrollDirection: Axis.horizontal,
                   children: List.generate(
-                    recommendedData.length,
-                    (index) => Container(
-                      margin: EdgeInsets.only(top: 8, right: 8, left: 0),
-                      width: 300,
-                      height: 200,
-                      decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(8),
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image:
-                                  NetworkImage(recommendedList[index].image))),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            left: 19.2,
-                            bottom: 19.2,
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: BackdropFilter(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      recommendedList[index].name,
-                                      style: TextStyle(color: Colors.white),
+                    recommendations.length,
+                    (index) => GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => SelectedPageScreen(
+                                recommendedModel: recommendations[index])));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(top: 8, right: 8, left: 0),
+                        width: 300,
+                        height: 200,
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(8),
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(
+                                    recommendations[index].image))),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              left: 19.2,
+                              bottom: 19.2,
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: BackdropFilter(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        recommendations[index].name,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
                                     ),
-                                  ),
-                                  filter:
-                                      ImageFilter.blur(sigmaX: 30, sigmaY: 30),
-                                )),
-                          )
-                        ],
+                                    filter: ImageFilter.blur(
+                                        sigmaX: 30, sigmaY: 30),
+                                  )),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -231,7 +204,7 @@ class _TravelHomePageState extends State<TravelHomePage> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    child: Text(recommendedList[index].name,
+                                    child: Text(recommendations[index].name,
                                         textAlign: TextAlign.center),
                                   ),
                                 ),
@@ -267,7 +240,7 @@ class _TravelHomePageState extends State<TravelHomePage> {
                                 image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: NetworkImage(
-                                        recommendedList[index].image))),
+                                        recommendations[index].image))),
                           ),
                         );
                       }),
