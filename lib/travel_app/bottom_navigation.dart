@@ -26,7 +26,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         onTap: _onItemTapped,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              label: "Today",
+              title: Text("Today"),
               icon: _selectIndex == 0
                   ? Icon(
                       Icons.home,
@@ -34,7 +34,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     )
                   : Icon(Icons.home)),
           BottomNavigationBarItem(
-              label: "Account",
+              title: Text("Account"),
               icon: _selectIndex == 1
                   ? Icon(
                       Icons.add_location,
@@ -42,15 +42,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     )
                   : Icon(Icons.add_location)),
           BottomNavigationBarItem(
-              label: "Account",
+              title: Text("Account"),
               icon: _selectIndex == 2
                   ? Icon(
-                      Icons.add_outlined,
+                      Icons.account_circle,
                       color: Colors.blue,
                     )
-                  : Icon(Icons.add_outlined)),
+                  : Icon(Icons.account_circle)),
           BottomNavigationBarItem(
-              label: "Ballot",
+              title: Text("Ballot"),
               icon: _selectIndex == 3
                   ? Icon(
                       Icons.notification_important,
@@ -58,7 +58,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     )
                   : Icon(Icons.notification_important)),
           BottomNavigationBarItem(
-              label: "Print",
+              title: Text("Print"),
               icon: _selectIndex == 4
                   ? Icon(Icons.person, color: Colors.blue)
                   : Icon(Icons.person)),

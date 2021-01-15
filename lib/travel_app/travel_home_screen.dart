@@ -158,7 +158,7 @@ class _TravelHomePageState extends State<TravelHomePage> {
                 padding: EdgeInsets.only(left: 22, top: 8, bottom: 8),
                 child: SmoothPageIndicator(
                   controller: _pageController,
-                  count: 4,
+                  count: recommendations.length,
                   effect: ScrollingDotsEffect(
                       activeDotColor: Colors.blue, dotHeight: 5, dotWidth: 5),
                 ),

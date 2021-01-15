@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_exercise/travel_app/travel_home_screen.dart';
 
-import 'travelgram/home.dart';
+import 'onlineshop/screen/home/onlineshophomescreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: TravelogramHomePage(),
+      home: OnelineShopHomeScreen(),
     );
   }
 }
